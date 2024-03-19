@@ -110,7 +110,7 @@ void WaitPhotoAtWaypoint::initialize(
       logger_, "Initializing photo at waypoint plugin, subscribing to camera topic named; %s",
       image_topic_.c_str());
     camera_image_subscriber_ = node->create_subscription<sensor_msgs::msg::Image>(
-      image_topic_, rclcpp::SystemDefaultsQoS(),
+      image_topic_, rclcpp::SensorDataQoS(),
       std::bind(&WaitPhotoAtWaypoint::imageCallback, this, std::placeholders::_1));
   }
 }
@@ -122,13 +122,14 @@ bool WaitPhotoAtWaypoint::processAtWaypoint(
     return true;
   }
 
+  auto img_nsec = curr_frame_msg_->header.stamp.nanosec;
+
   if (wait_for_images_) {
 
-    auto img_nsec = curr_frame_msg_->header.stamp.nanosec;
     auto count = 0;
 
     RCLCPP_INFO(
-        logger_, "Arrived at %i'th waypoint, waiting for %i images before taking picture..",
+        logger_, "Arrived at %i'th waypoint, waiting for %i images before saving picture..",
         curr_waypoint_index,
         image_amount_);
 
@@ -142,19 +143,28 @@ bool WaitPhotoAtWaypoint::processAtWaypoint(
         count);
       }
     } while (count < image_amount_);
+    
   } else {
+
+    RCLCPP_INFO(
+        logger_, "Arrived at %i'th waypoint, sleeping for %i images before saving picture..",
+        curr_waypoint_index,
+        waypoint_pause_duration_);
+
     clock_->sleep_for(std::chrono::milliseconds(waypoint_pause_duration_));
+    while (curr_frame_msg_->header.stamp.nanosec == img_nsec) {
+      clock_->sleep_for(std::chrono::milliseconds(200));
+    };
   }
 
   try {
-    // construct the full path to image filename
+    std::lock_guard<std::mutex> guard(global_mutex_);
+
     std::filesystem::path file_name = std::to_string(
       curr_waypoint_index) + "_" +
-      std::to_string(curr_pose.header.stamp.sec) + "." + image_format_;
+      std::to_string(curr_frame_msg_->header.stamp.sec) + "." + image_format_;
     std::filesystem::path full_path_image_path = save_dir_ / file_name;
 
-    // save the taken photo at this waypoint to given directory
-    std::lock_guard<std::mutex> guard(global_mutex_);
     cv::Mat curr_frame_mat;
     deepCopyMsg2Mat(curr_frame_msg_, curr_frame_mat);
     cv::imwrite(full_path_image_path.c_str(), curr_frame_mat);
@@ -175,6 +185,7 @@ bool WaitPhotoAtWaypoint::processAtWaypoint(
 
 void WaitPhotoAtWaypoint::imageCallback(const sensor_msgs::msg::Image::SharedPtr msg)
 {
+  //RCLCPP_INFO(logger_, "Got a new image with sec stamp %i!", msg->header.stamp.sec);
   std::lock_guard<std::mutex> guard(global_mutex_);
   curr_frame_msg_ = msg;
 }

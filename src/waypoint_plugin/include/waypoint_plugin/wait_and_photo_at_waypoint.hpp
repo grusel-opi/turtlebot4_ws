@@ -53,8 +53,7 @@ public:
     const rclcpp_lifecycle::LifecycleNode::WeakPtr & parent,
     const std::string & plugin_name);
 
-  bool processAtWaypoint(
-    const geometry_msgs::msg::PoseStamped & curr_pose, const int & curr_waypoint_index);
+  bool processAtWaypoint(const geometry_msgs::msg::PoseStamped & curr_pose, const int & curr_waypoint_index);
 
   void imageCallback(const sensor_msgs::msg::Image::SharedPtr msg);
 

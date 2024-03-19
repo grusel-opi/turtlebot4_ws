@@ -7,6 +7,8 @@ def main():
 
     naviagator = TurtleBot4Navigator()
 
+    naviagator.info("Checking dock status")
+
     if not naviagator.getDockedStatus():
         naviagator.info("Docking before init..")
         naviagator.dock()
@@ -14,7 +16,11 @@ def main():
     initial_pose = naviagator.getPoseStamped([0.0, 0.0], TurtleBot4Directions.NORTH)
     naviagator.setInitialPose(initial_pose)
 
+    naviagator.info("Waiting for nav2 to become active")
+
     naviagator.waitUntilNav2Active()
+
+    naviagator.info("Nav2 ready, lets go!")
 
     goals = []
     goals.append(naviagator.getPoseStamped([-0.96, -0.92], TurtleBot4Directions.NORTH))
