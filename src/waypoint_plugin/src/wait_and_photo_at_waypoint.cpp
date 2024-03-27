@@ -110,7 +110,7 @@ void WaitPhotoAtWaypoint::initialize(
       logger_, "Initializing photo at waypoint plugin, subscribing to camera topic named; %s",
       image_topic_.c_str());
     camera_image_subscriber_ = node->create_subscription<sensor_msgs::msg::Image>(
-      image_topic_, rclcpp::SensorDataQoS(),
+      image_topic_, rclcpp::SystemDefaultsQoS(),
       std::bind(&WaitPhotoAtWaypoint::imageCallback, this, std::placeholders::_1));
   }
 }
@@ -171,6 +171,7 @@ bool WaitPhotoAtWaypoint::processAtWaypoint(
     RCLCPP_INFO(
       logger_,
       "Photo has been taken sucessfully at waypoint %i", curr_waypoint_index);
+      
   } catch (const std::exception & e) {
     RCLCPP_ERROR(
       logger_,
