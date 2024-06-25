@@ -23,10 +23,17 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 
-from rewritten_yaml import RewrittenYaml
+import sys
+
 
 
 def generate_launch_description():
+    
+    print(sys.path)
+    
+    from rewritten_yaml import RewrittenYaml
+
+
     pkg_oakd = get_package_share_directory('oakd')
 
     params_file = LaunchConfiguration('params_file')
