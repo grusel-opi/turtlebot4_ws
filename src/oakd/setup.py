@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'waypoint_nav'
+package_name = 'oakd'
 
 setup(
     name=package_name,
@@ -13,14 +13,13 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='gandalf',
+    maintainer='mayerfel',
     maintainer_email='felix-max-jakob.mayer@student.uni-tuebingen.de',
     description='TODO: Package description',
     license='TODO: License declaration',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'navigator = waypoint_nav.navigator:main'
         ],
     },
 )
