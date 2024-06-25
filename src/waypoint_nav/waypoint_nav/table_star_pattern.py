@@ -1,8 +1,7 @@
-import rclpy
-from turtlebot4_navigation.turtlebot4_navigator import TurtleBot4Directions, TurtleBot4Navigator
-from math import atan2, pi, sqrt
 import numpy as np
+from math import atan2, pi, sqrt
 
+# orientation as quaternion with component order x, y, z, w
 
 def quat_to_euler(q):
 
@@ -48,44 +47,3 @@ def get_table_star_pattern_poses():
 
     return positions[:, :2], [quat_to_euler(q) for q in orientations] # positions (x, y), orientation (x, y, z, w)
 
-
-def main():
-    rclpy.init()
-
-    naviagator = TurtleBot4Navigator()
-
-    naviagator.info("Checking dock status")
-
-    if not naviagator.getDockedStatus():
-        naviagator.info("Docking before init..")
-        naviagator.dock()
-
-    initial_pose = naviagator.getPoseStamped([0.0, 0.4], TurtleBot4Directions.NORTH)
-    naviagator.setInitialPose(initial_pose)
-
-    naviagator.info("Waiting for nav2 to become active")
-
-    naviagator.waitUntilNav2Active()
-
-    naviagator.info("Nav2 ready, lets go!")
-
-    positions, orientations = get_table_star_pattern_poses()
-    
-    goals = []
-
-    for p, o in zip(positions, orientations):
-        goals.append(naviagator.getPoseStamped(p, o[2]))
-
-    goals.append(initial_pose)
-
-    naviagator.undock()
-
-    naviagator.startFollowWaypoints(goals)
-
-    naviagator.dock()
-
-    rclpy.shutdown()
-
-
-if __name__ == '__main__':
-    main()
