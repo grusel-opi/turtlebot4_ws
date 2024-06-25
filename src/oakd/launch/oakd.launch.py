@@ -23,7 +23,7 @@ from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import ComposableNodeContainer
 from launch_ros.descriptions import ComposableNode
 
-from oakd import RewrittenYaml
+from rewritten_yaml import RewrittenYaml
 
 
 def generate_launch_description():
