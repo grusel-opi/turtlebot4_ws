@@ -31,7 +31,7 @@ def generate_launch_description():
     
     print(sys.path)
     
-    from rewritten_yaml import RewrittenYaml
+    from .rewritten_yaml import RewrittenYaml
 
 
     pkg_oakd = get_package_share_directory('oakd')
