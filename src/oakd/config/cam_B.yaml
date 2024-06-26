@@ -8,6 +8,7 @@
       i_nn_type: none
       i_pipeline_type: RGBD
       i_usb_speed: SUPER_PLUS
+      i_mx_id: 18443010F1D2D00F00
     rgb:
       r_set_man_focus: true
       r_focus: 120
