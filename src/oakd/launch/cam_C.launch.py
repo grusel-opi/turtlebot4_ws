@@ -28,11 +28,11 @@ def launch_setup(context, *args, **kwargs):
 
     urdf_launch_dir = os.path.join(get_package_share_directory('depthai_descriptions'), 'launch')
 
-    params_file_A = LaunchConfiguration("params_file_A")
+    params_file_C = LaunchConfiguration("params_file_C")
 
-    name_A = LaunchConfiguration('name_A').perform(context)
+    name_C = LaunchConfiguration('name_C').perform(context)
 
-    parent_frame_A = LaunchConfiguration('parent_frame_A',  default = 'oak-d-A-base-frame')
+    parent_frame_C = LaunchConfiguration('parent_frame_C',  default = 'oak-d-C-base-frame')
 
     use_composition = LaunchConfiguration('rsp_use_composition', default='true')
 
@@ -50,7 +50,7 @@ def launch_setup(context, *args, **kwargs):
         launch_prefix += "perf record -g --call-graph dwarf --output=perf.out.node_name.data --"
     return [
         ComposableNodeContainer(
-            name=name_A+"_container",
+            name=name_C+"_container",
             namespace="",
             package="rclcpp_components",
             executable="component_container",
@@ -58,8 +58,8 @@ def launch_setup(context, *args, **kwargs):
                     ComposableNode(
                         package="depthai_ros_driver",
                         plugin="depthai_ros_driver::Camera",
-                        name=name_A,
-                        parameters=[load_fukn_yaml("oakd", "cam_A.yaml")],
+                        name=name_C,
+                        parameters=[load_fukn_yaml("oakd", "cam_C.yaml")],
                     )
             ],
             arguments=['--ros-args', '--log-level', log_level],
@@ -73,9 +73,9 @@ def generate_launch_description():
     oakd_pkg_prefix = get_package_share_directory("oakd")
 
     declared_arguments = [
-        DeclareLaunchArgument("name_A", default_value="oakd_cam_A"),
-        DeclareLaunchArgument("parent_frame_A", default_value="oak-d-A-base-frame"),
-        DeclareLaunchArgument("params_file_A", default_value=os.path.join(oakd_pkg_prefix, 'config', 'cam_A.yaml')),
+        DeclareLaunchArgument("name_C", default_value="oakd_cam_C"),
+        DeclareLaunchArgument("parent_frame_C", default_value="oak-d-C-base-frame"),
+        DeclareLaunchArgument("params_file_C", default_value=os.path.join(oakd_pkg_prefix, 'config', 'cam_C.yaml')),
         DeclareLaunchArgument("rsp_use_composition", default_value='true'),
         DeclareLaunchArgument("use_gdb", default_value='false'),
         DeclareLaunchArgument("use_valgrind", default_value='false'),
