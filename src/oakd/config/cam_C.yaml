@@ -37,16 +37,19 @@
       i_depth_filter_size: 5
       #i_depth_preset: HIGH_ACCURACY
       #i_disparity_width: DISPARITY_96
+      i_enable_decimation_filter: true
+      #i_decimation_filter_decimation_mode: NON_ZERO_MEDIAN
+      i_decimation_filter_decimation_factor: 2
       i_enable_brightness_filter: false
       i_enable_speckle_filter: false
-      i_enable_temporal_filter: false
+      i_enable_temporal_filter: true
       i_publish_confidence: true
-      i_lr_check: false
-      i_subpixel: false
+      i_lr_check: true
+      i_subpixel: true
       i_extended_disp: false
     right:
       i_fps: 5.0
-      i_publish_topic: false
+      i_publish_topic: true
       i_fsync_mode: OUTPUT
       #i_fsync_continuous: true
     left:
