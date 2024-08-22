@@ -12,13 +12,13 @@ from launch_ros.descriptions import ComposableNode
 
 
 # yes, this is ugly but necessary..
-def load_fukn_yaml(pkg_name, config_file_name, node_name, config_dir="config"):
+def load_fukn_yaml(pkg_name, config_file_name, config_dir="config"):
     configFilepath = os.path.join(get_package_share_directory(pkg_name),
-				                  config_dir,
-        	                      config_file_name)
+				  config_dir,
+        	                  config_file_name)
     file = open(configFilepath, 'r')
-    params = yaml.safe_load(file)[node_name]['ros__parameters']
-    return [params]
+    params = yaml.safe_load(file)['/oakd']['ros__parameters']
+    return params
 
 
 def launch_setup(context, *args, **kwargs):
@@ -48,8 +48,6 @@ def launch_setup(context, *args, **kwargs):
         launch_prefix += "valgrind --tool=callgrind"
     if (use_perf.perform(context) == 'true'):
         launch_prefix += "perf record -g --call-graph dwarf --output=perf.out.node_name.data --"
-
-
     return [
         ComposableNodeContainer(
             name=name_C+"_container",
@@ -61,15 +59,7 @@ def launch_setup(context, *args, **kwargs):
                         package="depthai_ros_driver",
                         plugin="depthai_ros_driver::Camera",
                         name=name_C,
-                        parameters=load_fukn_yaml("oakd", "cam_C.yaml", '/oakd'),
-                        extra_arguments=[{'use_intra_process_comms': True}]
-                    ),
-                    ComposableNode(
-                        package='rosbag2_transport',
-                        plugin='rosbag2_transport::Recorder',
-                        name='recorder_C',
-                        parameters=load_fukn_yaml("oakd", "recorder_C.yaml", "/recorder"),
-                        extra_arguments=[{'use_intra_process_comms': True}]
+                        parameters=[load_fukn_yaml("oakd", "cam_C.yaml")],
                     )
             ],
             arguments=['--ros-args', '--log-level', log_level],
