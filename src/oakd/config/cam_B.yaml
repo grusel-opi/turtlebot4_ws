@@ -31,7 +31,7 @@
       i_tf_parent_frame: oak-d-base-frame
       i_usb_port_id: ""
       i_usb_speed: SUPER_PLUS
-      diagnostic_updater:
+    diagnostic_updater:
       period: 1.0
     pipeline_gen:
       i_enable_diagnostics: true
