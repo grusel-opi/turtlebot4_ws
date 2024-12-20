@@ -58,8 +58,8 @@
       i_enable_nn: false
       i_exposure_offset: 0
       i_fps: 5.0
-      i_fsync_continuous: false
-      i_fsync_trigger: false
+      #i_fsync_continuous: false
+      #i_fsync_trigger: false
       i_get_base_device_timestamp: false
       i_height: 720
       i_low_bandiwdth_frame_freq: 30
@@ -77,7 +77,7 @@
       i_set_isp3a_fps: false
       i_simulate_from_topic: false
       i_simulated_topic_name: ""
-      i_synced: true
+      #i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       i_width: 1280
       r_exposure: 1000
@@ -94,8 +94,8 @@
       i_enable_preview: false
       i_exposure_offset: 0
       i_fps: 5.0
-      i_fsync_continuous: false
-      i_fsync_trigger: false
+      #i_fsync_continuous: false
+      #i_fsync_trigger: false
       i_get_base_device_timestamp: false
       i_height: 720
       i_interleaved: false
@@ -122,7 +122,7 @@
       i_set_isp_scale: true
       i_simulate_from_topic: false
       i_simulated_topic_name: ""
-      i_synced: true
+      #i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       i_width: 1280
       r_exposure: 20000
@@ -142,8 +142,8 @@
       i_enable_nn: false
       i_exposure_offset: 0
       i_fps: 5.0
-      i_fsync_continuous: false
-      i_fsync_trigger: false
+      #i_fsync_continuous: false
+      #i_fsync_trigger: false
       i_get_base_device_timestamp: false
       i_height: 720
       i_low_bandiwdth_frame_freq: 30
@@ -161,7 +161,7 @@
       i_set_isp3a_fps: false
       i_simulate_from_topic: false
       i_simulated_topic_name: ""
-      i_synced: true
+      #i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       i_width: 1280
       r_exposure: 1000
@@ -218,7 +218,7 @@
       i_left_rect_low_bandwidth_quality: 50
       i_left_rect_publish_compressed: false
       i_left_rect_publish_topic: false
-      i_left_rect_synced: true
+      #i_left_rect_synced: true
       i_left_socket_id: 1
       i_low_bandwidth: false
       i_low_bandwidth_bitrate: 0
@@ -229,7 +229,7 @@
       i_lrc_threshold: 10
       i_max_q_size: 30
       i_output_disparity: false
-      i_publish_synced_rect_pair: false
+      #i_publish_synced_rect_pair: false
       i_publish_topic: true
       i_rectify_edge_fill_color: 0
       i_reverse_stereo_socket_order: false
@@ -243,7 +243,7 @@
       i_right_rect_low_bandwidth_profile: 4
       i_right_rect_low_bandwidth_quality: 50
       i_right_rect_publish_compressed: false
-      i_right_rect_synced: true
+      #i_right_rect_synced: true
       i_right_socket_id: 2
       i_set_disparity_to_depth_use_spec_translation: false
       i_set_input_size: false
@@ -252,7 +252,7 @@
       i_stereo_conf_threshold: 100
       i_subpixel: true
       i_subpixel_fractional_bits: 3
-      i_synced: true
+      #i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       i_width: 1280
     use_sim_time: false
