@@ -59,7 +59,7 @@ def launch_setup(context, *args, **kwargs):
                         package="depthai_ros_driver",
                         plugin="depthai_ros_driver::Camera",
                         name=name_C,
-                        parameters=[load_fukn_yaml("oakd", "cam_C.yaml")],
+                        parameters=[load_fukn_yaml("oakd", "oakd.yaml")],
                     )
             ],
             arguments=['--ros-args', '--log-level', log_level],
