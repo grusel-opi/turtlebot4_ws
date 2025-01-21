@@ -109,10 +109,10 @@
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
-      i_height: 720
+      #i_height: 720
       i_interleaved: false
-      i_isp_den: 3
-      i_isp_num: 2
+      #i_isp_den: 3
+      #i_isp_num: 2
       i_keep_preview_aspect_ratio: true
       i_low_bandiwdth_frame_freq: 30
       i_low_bandwidth: true
@@ -136,7 +136,7 @@
       i_simulated_topic_name: ""
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
-      i_width: 1280
+      #i_width: 1280
       r_exposure: 4000
       r_focus: 120
       r_iso: 800
