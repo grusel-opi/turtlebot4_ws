@@ -181,7 +181,7 @@
       r_set_man_exposure: false
     stereo:
       i_add_exposure_offset: false
-      i_align_depth: true
+      i_align_depth: false
       i_bilateral_sigma: 0
       i_board_socket_id: 0
       i_depth_filter_size: 5
