@@ -127,7 +127,7 @@
       i_preview_width: 300
       i_publish_compressed: false
       i_publish_topic: true
-      i_resolution: 1080P
+      i_resolution: 4K
       i_reverse_stereo_socket_order: false
       i_sensor_img_orientation: AUTO
       i_set_isp3a_fps: false
@@ -137,11 +137,11 @@
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       i_width: 1280
-      r_exposure: 20000
-      r_focus: 1
+      r_exposure: 4000
+      r_focus: 120
       r_iso: 800
       r_set_man_exposure: false
-      r_set_man_focus: false
+      r_set_man_focus: true
       r_set_man_whitebalance: false
       r_whitebalance: 3300
     right:
