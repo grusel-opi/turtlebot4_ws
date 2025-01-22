@@ -60,7 +60,7 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 30.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -105,7 +105,7 @@
       i_enable_nn: false
       i_enable_preview: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 30.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -141,7 +141,7 @@
       r_focus: 120
       r_iso: 800
       r_set_man_exposure: false
-      r_set_man_focus: true
+      r_set_man_focus: false
       r_set_man_whitebalance: false
       r_whitebalance: 3300
     right:
@@ -153,11 +153,11 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 30.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
-      i_height: 720
+      # i_height: 720
       i_low_bandiwdth_frame_freq: 30
       i_low_bandwidth: false
       i_low_bandwidth_bitrate: 0
@@ -175,7 +175,7 @@
       i_simulated_topic_name: ""
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
-      i_width: 1280
+      # i_width: 1280
       r_exposure: 1000
       r_iso: 800
       r_set_man_exposure: false
@@ -218,7 +218,7 @@
       i_exposure_offset: 0
       i_extended_disp: false
       i_get_base_device_timestamp: false
-      i_height: 720
+      # i_height: 720
       i_left_rect_add_exposure_offset: false
       i_left_rect_enable_feature_tracker: false
       i_left_rect_exposure_offset: 0
@@ -267,5 +267,5 @@
       i_subpixel_fractional_bits: 3
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
-      i_width: 1280
+      # i_width: 1280
     use_sim_time: false
