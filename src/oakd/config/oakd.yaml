@@ -60,7 +60,7 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 3.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -105,7 +105,7 @@
       i_enable_nn: false
       i_enable_preview: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 3.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -137,13 +137,13 @@
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       #i_width: 1280
-      r_exposure: 4000
+      r_exposure: 3200
       r_focus: 120
       r_iso: 800
-      r_set_man_exposure: false
-      r_set_man_focus: false
-      r_set_man_whitebalance: false
-      r_whitebalance: 3300
+      r_set_man_exposure: true
+      r_set_man_focus: true
+      r_set_man_whitebalance: true
+      r_whitebalance: 5500
     right:
       i_add_exposure_offset: false
       i_board_socket_id: 2
@@ -153,7 +153,7 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 5.0
+      i_fps: 3.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
