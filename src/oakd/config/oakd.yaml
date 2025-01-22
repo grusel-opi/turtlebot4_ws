@@ -127,7 +127,7 @@
       i_preview_width: 300
       i_publish_compressed: false
       i_publish_topic: true
-      i_resolution: 4K
+      i_resolution: 1080P
       i_reverse_stereo_socket_order: false
       i_sensor_img_orientation: AUTO
       i_set_isp3a_fps: false
