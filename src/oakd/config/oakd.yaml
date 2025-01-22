@@ -60,7 +60,7 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 30.0
+      i_fps: 15.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -105,7 +105,7 @@
       i_enable_nn: false
       i_enable_preview: false
       i_exposure_offset: 0
-      i_fps: 30.0
+      i_fps: 15.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
@@ -153,7 +153,7 @@
       i_enable_lazy_publisher: true
       i_enable_nn: false
       i_exposure_offset: 0
-      i_fps: 30.0
+      i_fps: 15.0
       i_fsync_continuous: false
       i_fsync_trigger: false
       i_get_base_device_timestamp: false
