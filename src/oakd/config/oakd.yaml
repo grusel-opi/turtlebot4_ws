@@ -137,13 +137,13 @@
       i_synced: true
       i_update_ros_base_time_on_ros_msg: false
       #i_width: 1280
-      r_exposure: 3200
+      r_exposure: 1500
       r_focus: 120
       r_iso: 800
       r_set_man_exposure: true
       r_set_man_focus: true
       r_set_man_whitebalance: true
-      r_whitebalance: 5500
+      r_whitebalance: 5000
     right:
       i_add_exposure_offset: false
       i_board_socket_id: 2
